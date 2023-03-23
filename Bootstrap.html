@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/f6e7962a1b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        font-family: "Kumbh Sans", sans-serif;
+      }
+      .mainDiv {
+        width: 56vw;
+      }
+      .img1 {
+        height: 24px;
+      }
+      span {
+        display: none;
+      }
+      input[type='text'], input[type='password'] {
+        border-width: 1px;
+        transition: 0.4s !important;
+        box-shadow: none !important;
+      }
+      input:focus + span {
+        box-sizing: border-box;
+        display: inline;
+        position: relative;
+        top: -50px;
+        left: 6px;
+        background-color: white;
+        z-index: 2;
+        padding-left: 3px;
+        padding-right: 3px;
+        font-size: 9px;
+        color: blue;
+      }
+      input:focus,.colorChanger,.blue {
+        border-color:blue!important;
+      }
+      .red{
+        border-color: red!important;
+      }
+      input:focus::placeholder {
+        color: transparent;
+      }
+      .gmail {
+        padding-top: 4px;
+      }
+      .user {
+        height: 38px;
+        margin-left: 1px;
+        margin-right: 1px;
+      }
+      .text1 {
+        color: #5f6368;
+        margin-left: 3px;
+        opacity: 1;
+        padding-top: 4px;
+        font-size: 12px;
+      }
+      .text2 {
+        background-color: transparent;
+        border: none;
+        font-weight: 600;
+        font-size: 0.8rem;
+        color: #3498db;
+        transition: all 0.4s;
+      }
+      .text2:hover {
+        color: blue;
+        background-color: rgba(0, 0, 255, 0.093);
+      }
+      #showPass {
+        display: inline;
+        font-size: 12px;
+      }
+      .checkbox {
+        scale: 1.4;
+        margin-right: 0.7rem;
+        margin-left: 0.2rem;
+        border-color: #5f6368!important;
+      }
+      @media screen and (max-width: 768px) {
+        #accountLogo {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mx-auto mt-4 h-100 mainDiv">
+      <div>
+        <div
+          class="container m-2 border border-opacity-25 border-1 rounded"
+        >
+          <div class="row">
+            <div class="col-md-8 pt-5 px-5 me-0">
+              <div>
+                <img
+                  class="ms-0 mb-3 img-fluid img1"
+                  src="./Images/Google logo.jpg"
+                />
+              </div>
+              <div>
+                <div class="h4 fw-normal">Create your Google Account</div>
+              </div>
+              <div class="mt-5">
+                <form>
+                  <div class="row mb-3">
+                    <div class="col-md-6 pe-2" style="height: 38px;">
+                      <input
+                        type="text"
+                        class="form-control border border-opacity-25 border-1 rounded"
+                        placeholder="First Name"
+                        id="firstName"
+                      />
+                      <span>First Name</span>
+                    </div>
+                    <div class="col-md-6 ps-0" style="height: 38px;">
+                      <input
+                        type="text"
+                        class="form-control border border-opacity-25 border-1 rounded"
+                        placeholder="Last Name"
+                        id="lastName"
+                      />
+                      <span>Last Name</span>
+                    </div>
+                    <div class="text1 text-danger d-none" id="errorName">
+                    </div>
+                  </div>
+                  <div class="row user border border-opacity-25 border-1 rounded" id="userNameDiv">
+                    <div class="col-9 pe-0 ps-0">
+                      <input
+                        type="text"
+                        class="username form-control border-0"
+                        placeholder="Username"
+                        onfocus="changeColor()"
+                        onblur="changeColor()"
+                        id="userName"
+                      />
+                      <span>Username</span>
+                    </div>
+                    <div class="col-3 ps-0" style="height: 38px;">
+                      <div
+                        class="gmail h-100"
+                      >
+                        @gmail.com
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text1 mb-3" id="errorUserName">                    
+                    You can use letters, numbers & periods
+                  </div>
+                  <div class="mt-2 d-flex justify-content-between">
+                    <button type="button" class="text2">
+                      Use my current email address instead
+                    </button>
+                  </div>
+                  <div class="row mt-5" style="height: 38px;">
+                    <div class="col-md-6 pe-2">
+                      <input
+                        type="password"
+                        class="form-control border border-opacity-25 border-1 rounded"
+                        placeholder="Password"
+                      />
+                      <span>Password</span>
+                    </div>
+                    <div class="col-md-6 ps-0">
+                      <input
+                        type="text"
+                        class="form-control border border-opacity-25 border-1 rounded"
+                        placeholder="Confirm"
+                      />
+                      <span>Confirm</span>
+                    </div>
+                  </div>
+                  <div class="text1">
+                    Use 8 or more characters with a mix of letters, numbers &
+                    symbols
+                  </div>
+                  <div class="ps-1 mt-2">
+                    <input type="checkbox" class="checkbox" />
+                    <div id="showPass">Show password</div>
+                  </div>
+                  <div class="d-flex justify-content-between my-5">
+                    <button class="text2" type="button">Sign in instead</button>
+                    <button class="btn btn-sm btn-primary" type="button" onclick="validate()">Next</button>
+                  </div>
+                </form>
+              </div>
+              <div></div>
+            </div>
+            <div id="accountLogo" class="col-md-4 my-auto pe-4">
+              <img src="./Images/account logo.svg" />
+              <div class="text-center">One account. All of Google working for you.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>Hlo</div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      function changeColor(){
+        document.querySelector(".user").classList.toggle("colorChanger");
+      }
+
+      function validate(){
+        let namePattern="^[A-Za-z]+$";
+        let error=`<i class="fa-solid fa-circle-exclamation me-1"></i>`;
+        let firstName=document.querySelector("#firstName");
+        let lastName=document.querySelector("#lastName");
+        let errorName=document.querySelector("#errorName");
+        errorName.classList.remove("d-none");
+        if(firstName.value.search(namePattern)==-1 && lastName.value.search(namePattern)==-1){
+          errorName.innerHTML=error+"Enter first and last names";
+          firstName.classList.add("red");
+          lastName.classList.add("red");
+        }
+        else if(firstName.value.search(namePattern)==-1){
+          errorName.innerHTML=error+"Enter first name";
+          firstName.classList.add("red");
+          lastName.classList.remove("red");
+        }
+        else if(lastName.value.search(namePattern)==-1){
+          errorName.innerHTML=error+"Enter last name";
+          lastName.classList.add("red");
+          firstName.classList.remove("red");
+        }
+        else{
+          errorName.classList.add("d-none");
+          firstName.classList.remove("red");
+          lastName.classList.remove("red");
+        }
+
+        let userName=document.querySelector("#userName");
+        let userNameDiv=document.querySelector("#userNameDiv");
+        let errorUserName=document.querySelector("#errorUserName");
+        if(userName.value==''){
+          errorUserName.innerHTML=error+"Choose a Gmail address";
+          userNameDiv.classList.add("red");
+          errorUserName.classList.add("text-danger");
+        }
+        else if(userName.value.search("^[A-Za-z0-9.]+$")==-1){
+          errorUserName.innerHTML=error+"Sorry, only letters (a-z), numbers (0-9), and periods (.) are allowed.";
+          userNameDiv.classList.add("red");
+          errorUserName.classList.add("text-danger");
+        }
+        else if(userName.value.length<6 || userName.value.length>30){
+          errorUserName.innerHTML=error+"Sorry, your username must be between 6 and 30 characters long.";
+          userNameDiv.classList.add("red");
+          errorUserName.classList.add("text-danger");
+        }
+        else if(userName.value.charAt(userName.value.length-1)=='.'){
+          errorUserName.innerHTML=error+"Sorry, the last character of your username must be an ascii letter (a-z) or number (0-9).";
+          userNameDiv.classList.add("red");
+          errorUserName.classList.add("text-danger");
+        }
+        else{
+          errorUserName.innerHTML="You can use letters, numbers & periods";
+          userNameDiv.classList.remove("red");
+          errorUserName.classList.remove("text-danger");
+        }
+      }
+    </script>
+  </body>
+</html>

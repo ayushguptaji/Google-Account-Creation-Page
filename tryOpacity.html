@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/f6e7962a1b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <style>
+      span {
+        display: none;
+      }
+      input[type="text"]:focus + span {
+        display: inline-block;
+        position: relative;
+        top: -10px;
+        left: -175px;
+        background-color: white;
+        z-index: 2;
+        width: 30px;
+        font-size: smaller;
+      }
+      input:focus::placeholder {
+        color: transparent;
+      }
+      input[type="text"]:hover ~ img {
+        opacity: 0.2;
+      }
+      input:focus {
+        outline: none;
+      }
+      .dark {
+        color: white;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <button type="Button" id="btn" onclick="toggleMode()">
+        Change mode.
+      </button>
+
+      <br />
+      Lorem ipsum dolor sit amet consect
+      <!--
+      <input id="box3" type="text" oninput="test2()" />
+      <button type="button" onclick="test2()">Click me</button>
+      <p id="p1">Please enter an integer.</p>
+    
+
+      <input id="box4" type="text" oninput="test3()" />
+      <p id="p2">Please enter an integer.</p>
+
+
+      <div>
+        <input type="text" placeholder="Name" />
+        <span>Name</span>
+      </div>
+      <br />
+      <input type="text" placeholder="Opacity" />
+      <img style="height: 50vh" src="./Images/account logo.svg" />
+      <br />
+      <form>
+        <div
+          class="ms-5 my-5 rounded border border-3 rounded-pill border-primary-subtle d-inline-block"
+          style="scale: 1.5"
+        >
+          <i
+            class="fa-solid fa-magnifying-glass"
+            style="padding-left: 10px; color: grey"
+          ></i>
+          <input
+            type="text"
+            class="form-control-md"
+            style="border: none; width: 400px"
+            placeholder="Search Google or type a URL"
+          />
+          <i
+            class="fa-solid fa-microphone"
+            style="padding-right: 10px; color: blue"
+          ></i>
+        </div>
+      </form>
+
+      <button type="button" onclick="test1()">Prompt</button>
+      <br />
+
+    --></div>
+
+    <script>
+      function toggleMode() {
+        const y = document.querySelector("body");
+        y.classList.toggle("dark");
+      }
+
+      function test3() {
+        const y = document.querySelector("#box4").value.trim();
+        const z = document.querySelector("#p2").remove;
+        if (y == "") z.innerHTML = "Please enter an integer.";
+        else if (y > 1e15) z.innerHTML = "Enter an integer less than 1e15.";
+        else if (!(y % 1 === 0) || y[y.length - 1] == ".")
+          z.innerHTML =
+            "You didn't entered an integer. Please enter an integer.";
+        else {
+          let w = y[0];
+          let q = parseInt(y[0]);
+          for (let i = 1; i < y.length; i++) {
+            w = w + "," + y[i];
+            q += parseInt(y[i]);
+          }
+          z.innerHTML =
+            "The digits you have entered are " + w + " And the sum is " + q;
+        }
+      }
+
+      function test2() {
+        const y = document.querySelector("#box3").value.trim();
+        const z = document.querySelector("#p1");
+        if (y == "") z.innerHTML = "Please enter an integer.";
+        else if (y > 1e15) z.innerHTML = "Enter a number less than 1e15.";
+        else if (isNaN(y))
+          z.innerHTML = "You didn't entered a integer. Please enter a integer.";
+        else if (y % 2 == 0) z.innerHTML = "The number is even.";
+        else z.innerHTML = "The number is odd.";
+      }
+
+      function addition(x, y) {
+        return x + y;
+      }
+      function test() {
+        var x = 1.5;
+        console.log("Hello", typeof x, x);
+        console.error("Not found");
+        console.log(addition(10));
+        console.log(addition(10, "abc"));
+        console.log(addition(10, true));
+        var add = (x, y) => {
+          return x + y;
+        };
+      }
+      //console.log(addd(10,20));
+      var addd = (x, y) => {
+        return x + y;
+      };
+
+      var x = 10;
+      var x = 20;
+      console.log(x);
+
+      function test1() {
+        let y = prompt("Enter a number");
+        if (isNaN(y)) {
+          alert("You didn't entered a number. Please enter a number");
+          test1();
+        } else if (y % 2 == 0) alert("The number is even.");
+        else alert("The number is odd.");
+      }
+
+      function f(y, ...x) {
+        console.log(x);
+        var sum = 0;
+        for (var val of x) {
+          sum += val;
+        }
+        console.log(sum);
+      }
+
+      f(10, 20, 30);
+
+      let x = [10, 20, 30];
+      let y = [...x];
+      x[3] = 40;
+
+      console.log(x);
+      console.log(y);
+
+      let obj1 = { name: "test" };
+      let obj2 = { ...obj1 };
+      obj1.score = 80;
+
+      console.log(obj1);
+      console.log(obj2);
+    </script>
+  </body>
+</html>
