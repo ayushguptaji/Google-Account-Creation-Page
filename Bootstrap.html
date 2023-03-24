@@ -61,8 +61,13 @@
       input:focus::placeholder {
         color: transparent;
       }
+      .username{
+        width:75%;  
+      }
       .gmail {
-        padding-top: 4px;
+        width: auto;
+        padding-top: 6px;
+        margin-right: 10px;
       }
       .user {
         height: 38px;
@@ -72,7 +77,6 @@
       .text1 {
         color: #5f6368;
         margin-left: 3px;
-        opacity: 1;
         padding-top: 4px;
         font-size: 12px;
       }
@@ -98,9 +102,35 @@
         margin-left: 0.2rem;
         border-color: #5f6368!important;
       }
-      @media screen and (max-width: 768px) {
+      #footer{
+        font-size: 12px;
+      }
+      @media screen and (max-width: 1080px) {
         #accountLogo {
           display: none;
+        }
+        #content{
+          width: 100%;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        #name{
+          margin-bottom: 1rem;
+        }
+        #password{
+          margin-bottom: 1rem;
+        }
+      }
+      @media screen and (max-width: 600px) {
+        #borderDiv{
+          border: none !important;
+        }
+        #content{
+          padding: 0px 0px !important;
+        }
+        .mainDiv{
+          width: 100% !important;
+          padding: 20px 40px !important;
         }
       }
     </style>
@@ -108,24 +138,24 @@
   <body>
     <div class="mx-auto mt-4 h-100 mainDiv">
       <div>
-        <div
-          class="container m-2 border border-opacity-25 border-1 rounded"
+        <div id="borderDiv"
+          class="container m-md-2 border border-opacity-25 border-1 rounded"
         >
           <div class="row">
-            <div class="col-md-8 pt-5 px-5 me-0">
+            <div class="col-md-8 pt-5 px-5 me-md-0" id="content">
               <div>
                 <img
-                  class="ms-0 mb-3 img-fluid img1"
+                  class="ms-md-0 mb-3 img-fluid img1"
                   src="./Images/Google logo.jpg"
                 />
               </div>
               <div>
                 <div class="h4 fw-normal">Create your Google Account</div>
               </div>
-              <div class="mt-5">
+              <div class="mt-3">
                 <form>
                   <div class="row mb-3">
-                    <div class="col-md-6 pe-2" style="height: 38px;">
+                    <div class="col-md-6 pe-md-2 mb-md-0" id="name" style="height: 38px;">
                       <input
                         type="text"
                         class="form-control border border-opacity-25 border-1 rounded"
@@ -134,7 +164,7 @@
                       />
                       <span>First Name</span>
                     </div>
-                    <div class="col-md-6 ps-0" style="height: 38px;">
+                    <div class="col-md-6 ps-md-0" style="height: 38px;">
                       <input
                         type="text"
                         class="form-control border border-opacity-25 border-1 rounded"
@@ -143,14 +173,14 @@
                       />
                       <span>Last Name</span>
                     </div>
-                    <div class="text1 text-danger d-none" id="errorName">
+                    <div class="text1 text-danger d-none mb-3" id="errorName">
                     </div>
                   </div>
-                  <div class="row user border border-opacity-25 border-1 rounded" id="userNameDiv">
-                    <div class="col-9 pe-0 ps-0">
+                  <div class="d-flex user border border-opacity-25 border-1 rounded" id="userNameDiv">
+                    <div class="pe-0 ps-0 username">
                       <input
                         type="text"
-                        class="username form-control border-0"
+                        class="form-control border-0"
                         placeholder="Username"
                         onfocus="changeColor()"
                         onblur="changeColor()"
@@ -158,9 +188,9 @@
                       />
                       <span>Username</span>
                     </div>
-                    <div class="col-3 ps-0" style="height: 38px;">
+                    <div class="ps-md-0 gmail d-flex" style="height: 38px;">
                       <div
-                        class="gmail h-100"
+                        class="h-100"
                       >
                         @gmail.com
                       </div>
@@ -169,35 +199,38 @@
                   <div class="text1 mb-3" id="errorUserName">                    
                     You can use letters, numbers & periods
                   </div>
-                  <div class="mt-2 d-flex justify-content-between">
+                  <div class="mt-md-2 d-flex">
                     <button type="button" class="text2">
                       Use my current email address instead
                     </button>
                   </div>
-                  <div class="row mt-5" style="height: 38px;">
-                    <div class="col-md-6 pe-2">
+                  <div class="row mt-4">
+                    <div class="col-md-6 pe-md-2" id="password" style="height: 38px;">
                       <input
                         type="password"
                         class="form-control border border-opacity-25 border-1 rounded"
                         placeholder="Password"
+                        id="pass"
                       />
                       <span>Password</span>
                     </div>
-                    <div class="col-md-6 ps-0">
+                    <div class="col-md-6 ps-md-0" style="height: 38px;">
                       <input
-                        type="text"
+                        type="password"
                         class="form-control border border-opacity-25 border-1 rounded"
                         placeholder="Confirm"
+                        id="confirmPass"
                       />
                       <span>Confirm</span>
                     </div>
+                    <div class="text1" id="errorPass">
+                      Use 8 or more characters with a mix of letters, numbers &
+                      symbols
+                    </div>
                   </div>
-                  <div class="text1">
-                    Use 8 or more characters with a mix of letters, numbers &
-                    symbols
-                  </div>
-                  <div class="ps-1 mt-2">
-                    <input type="checkbox" class="checkbox" />
+                  
+                  <div class="ps-md-1 mt-2">
+                    <input type="checkbox" class="checkbox" onclick="showPass()"/>
                     <div id="showPass">Show password</div>
                   </div>
                   <div class="d-flex justify-content-between my-5">
@@ -208,14 +241,29 @@
               </div>
               <div></div>
             </div>
-            <div id="accountLogo" class="col-md-4 my-auto pe-4">
+            <div id="accountLogo" class="col-md-4 my-md-auto pe-md-4">
               <img src="./Images/account logo.svg" />
               <div class="text-center">One account. All of Google working for you.</div>
             </div>
           </div>
         </div>
       </div>
-      <div>Hlo</div>
+      <div class="row my-3" id="footer">
+        <div class="col-6">
+
+        </div>
+        <div class="col-6 d-flex justify-content-end pe-1">
+          <div class="mx-3">
+            Help
+          </div>
+          <div class="mx-3">
+            Privacy
+          </div>
+          <div class="mx-3 me-0">
+            Terms
+          </div>
+        </div>
+      </div>
     </div>
 
     <script
@@ -228,6 +276,19 @@
       function changeColor(){
         document.querySelector("#userNameDiv").classList.remove("red");
         document.querySelector(".user").classList.toggle("colorChanger");
+      }
+
+      function showPass(){
+        let pass=document.querySelector("#pass").type;
+        let confirmPass=document.querySelector("#confirmPass").type;
+        if(pass=="password"){
+          document.querySelector("#pass").type="text";
+          document.querySelector("#confirmPass").type="text";
+        }
+        else{
+          document.querySelector("#pass").type="password";
+          document.querySelector("#confirmPass").type="password";
+        }
       }
 
       function validate(){
@@ -267,17 +328,17 @@
           errorUserName.classList.add("text-danger");
         }
         else if(userName.value.search("^[A-Za-z0-9.]+$")==-1){
-          errorUserName.innerHTML=error+"Sorry, only letters (a-z), numbers (0-9), and periods (.) are allowed.";
+          errorUserName.innerHTML=error+"Sorry, only letters (a-z), numbers (0-9), and periods (.) are allowed";
           userNameDiv.classList.add("red");
           errorUserName.classList.add("text-danger");
         }
         else if(userName.value.length<6 || userName.value.length>30){
-          errorUserName.innerHTML=error+"Sorry, your username must be between 6 and 30 characters long.";
+          errorUserName.innerHTML=error+"Sorry, your username must be between 6 and 30 characters long";
           userNameDiv.classList.add("red");
           errorUserName.classList.add("text-danger");
         }
         else if(userName.value.charAt(userName.value.length-1)=='.'){
-          errorUserName.innerHTML=error+"Sorry, the last character of your username must be an ascii letter (a-z) or number (0-9).";
+          errorUserName.innerHTML=error+"Sorry, the last character of your username must be an ascii letter (a-z) or number (0-9)";
           userNameDiv.classList.add("red");
           errorUserName.classList.add("text-danger");
         }
@@ -285,6 +346,45 @@
           errorUserName.innerHTML="You can use letters, numbers & periods";
           userNameDiv.classList.remove("red");
           errorUserName.classList.remove("text-danger");
+        }
+
+        let passPattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$";
+        let pass=document.querySelector("#pass");
+        let confirmPass=document.querySelector("#confirmPass");
+        let errorPass=document.querySelector("#errorPass");
+        if(pass.value==""){
+          errorPass.innerHTML=error+"Enter a password";
+          pass.classList.add("red");
+          errorPass.classList.add("text-danger");
+        }
+        else if(pass.value.length<8){
+          errorPass.innerHTML=error+"Use 8 characters or more for your password";
+          pass.classList.add("red");
+          errorPass.classList.add("text-danger");
+        }
+        else if(confirmPass.value==""){
+          errorPass.innerHTML=error+"Confirm your password";
+          pass.classList.remove("red");
+          confirmPass.classList.add("red");
+          errorPass.classList.add("text-danger");
+        }
+        else if(confirmPass.value!=pass.value){
+          errorPass.innerHTML=error+"Those passwords didn't match. Try again.";
+          pass.classList.remove("red");
+          confirmPass.classList.add("red");
+          errorPass.classList.add("text-danger");
+        }
+        else if(pass.value.match(passPattern)==0){
+          errorPass.innerHTML=error+"Please choose a stronger password. Try a mix of letters (capital and small), numbers, and symbols.";
+          pass.classList.add("red");
+          confirmPass.classList.remove("red");
+          errorPass.classList.add("text-danger");
+        }
+        else{
+          errorPass.innerHTML="Use 8 or more characters with a mix of letters, numbers & symbols";
+          pass.classList.remove("red");
+          confirmPass.classList.remove("red");
+          errorPass.classList.remove("text-danger");
         }
       }
     </script>
